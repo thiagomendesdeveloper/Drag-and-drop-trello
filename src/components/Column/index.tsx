@@ -5,7 +5,7 @@ import { useDrop } from 'react-dnd';
 import { taskCardProps } from './types';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store'
-import { addListTickets } from '../../redux/tickets/ticketSlice';
+import { addListTickets, remodedItem } from '../../redux/tickets/ticketSlice';
 
 export default function Column(props: columnProps) {
 
@@ -25,17 +25,18 @@ export default function Column(props: columnProps) {
         }),
     }))
 
-    const setListItem = (novo: any) => {
-
-        const teste = list.tickets.map((item: any) => ({ 
+    const setListItem = async (novo: any) => {
+        await Dispatch(remodedItem.remodedItem(novo.props))
+        const updateList = list.tickets.map((item: any) => ({
             title: item.title,
             id: item.id,
             color: item.color,
-            cards: props.title === item.title ? [...item.cards, novo.props ]: item?.cards
+            cards: props.title === item.title
+                ? [...item.cards, ...item.cards.filter((card: any) => card.id !== novo.props.id), novo.props]
+                : [...item.cards]
         }))
-        Dispatch(addListTickets.addListTickets(teste))
-        console.log(novo)
-        console.log(list)
+        console.log(updateList)
+        Dispatch(addListTickets.addListTickets(updateList))
     }
 
     return (
@@ -44,7 +45,7 @@ export default function Column(props: columnProps) {
                 <h3>{props.title}</h3>
             </header>
             <div className="content">
-                {props?.cards.map((item: taskCardProps) => {
+                {props.cards && props.cards.map((item: taskCardProps) => {
                     return (
                         <TaskCard key={item.id} id={item.id} descricao={item.descricao} responsavel={item.responsavel} tag={item.tag} upload={item.upload} />
                     )

@@ -8,15 +8,15 @@ import { column } from "./types"
 export default function Home() {
 
     const list = useSelector((state: RootState) => state.ticket)
-
+    console.log(list)
     return (
         <>
             <Header />
             <div className="container">
                 <div className="grid">
-                    {list?.tickets?.map((item: column) => {
+                    {list.tickets.map((item: column) => {
                         return (
-                            <Column key={item.id} headerColor={item.color} title={item.title} cards={item?.cards} />
+                            <Column key={item.id} headerColor={item.color} title={item.title} cards={item.cards} />
                         )
                     })}
                 </div>

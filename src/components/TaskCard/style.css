@@ -3,3 +3,8 @@
     padding: 15px;
     margin-top: 10px;
 }
+
+.button-cards{
+    display: flex;
+    justify-content: space-between;
+}

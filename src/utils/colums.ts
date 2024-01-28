@@ -3,23 +3,13 @@ export const columnList = [
         id: 1,
         title: 'Abertos',
         color: '#FF722A',
-        cards: [{
-            tag: 'procedimento',
-            id: '1234',
-            descricao: 'vazamento',
-            responsavel: 'yudi',
-        }],
+        cards: [],
     },
     {
         id: 2,
         title: 'Executados',
         color: '#FFBC00',
-        cards: [{
-            tag: 'procedimento',
-            id: '1234',
-            descricao: 'vazamento',
-            responsavel: 'yudi',
-        }],
+        cards: [],
     },
     {
         id: 3,
