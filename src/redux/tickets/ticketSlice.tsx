@@ -22,8 +22,9 @@ export const ticketSlice = createSlice({
     reducers: {
         addTicket: (state: any, action: PayloadAction<ticket>) => {
             state.tickets[0].cards = [...state.tickets[0]?.cards, action.payload] 
-            const newState = [...state.tickets];
-            localStorage.setItem('tasks', JSON.stringify(newState));
+        },
+        remodedItem: (state, action) => {
+            state.tickets = action.payload
         },
         addListTickets: (state, action) => {
             state.tickets = action.payload

@@ -17,10 +17,9 @@ export default function TaskCard(props: taskCardProps) {
         []
     )
 
-    console.log(opacity)
-
     return (
         <div ref={dragRef} style={{ opacity }} className='card'>
+            <img src={props.upload} alt="" />
             <span className='flag'>{props.tag}</span>
             <h4>{props.id}</h4>
             <p>{props.descricao}</p>

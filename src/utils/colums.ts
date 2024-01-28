@@ -14,7 +14,12 @@ export const columnList = [
         id: 2,
         title: 'Executados',
         color: '#FFBC00',
-        cards: [],
+        cards: [{
+            tag: 'procedimento',
+            id: '1234',
+            descricao: 'vazamento',
+            responsavel: 'yudi',
+        }],
     },
     {
         id: 3,

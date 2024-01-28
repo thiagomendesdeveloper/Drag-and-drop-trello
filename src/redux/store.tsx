@@ -7,10 +7,9 @@ export const store = configureStore({
     },
 },)
 
-// Adiciona um listener para salvar os dados no localStorage sempre que o estado mudar
 store.subscribe(() => {
     const state = store.getState();
-    localStorage.setItem('tickets', JSON.stringify(state.ticket.tickets));
+    localStorage.setItem('tasks', JSON.stringify(state.ticket.tickets));
 });
 
 store.subscribe
